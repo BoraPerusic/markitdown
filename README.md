@@ -94,6 +94,36 @@ You can also pipe content:
 cat path-to-file.pdf | markitdown
 ```
 
+### Web Service (markitdown-web)
+
+A lightweight web wrapper is available as a separate package under `packages/markitdown-web`.
+
+- Install (editable from repo root):
+  - `pip install -e packages/markitdown-web`
+- Set an API key (required):
+  - `export MARKITDOWN_WEB_API_KEY=your-secret`
+- Run the server:
+  - `markitdown-web --host 0.0.0.0 --port 8080`
+- Open the UI at `http://localhost:8080/` to upload a file and edit/preview the generated Markdown.
+
+API example (download attachment):
+
+```bash
+curl -H "x-api-key: $MARKITDOWN_WEB_API_KEY" \
+     -F "file=@path-to-file.pdf" \
+     "http://localhost:8080/api/convert?response=download" \
+     -o document.md
+```
+
+API example (inline text with gzip if supported):
+
+```bash
+curl -H "x-api-key: $MARKITDOWN_WEB_API_KEY" \
+     -H "Accept-Encoding: gzip" \
+     -F "file=@path-to-file.pdf" \
+     "http://localhost:8080/api/convert?response=compressed"
+```
+
 ### Optional Dependencies
 MarkItDown has optional dependencies for activating various file formats. Earlier in this document, we installed all optional dependencies with the `[all]` option. However, you can also install them individually for more control. For example:
 

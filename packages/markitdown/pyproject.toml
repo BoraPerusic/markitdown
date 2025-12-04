@@ -69,6 +69,7 @@ path = "src/markitdown/__about__.py"
 
 [project.scripts]
 markitdown = "markitdown.__main__:main"
+markitdown-bulk = "markitdown.bulk_converter.__main__:main"
 
 [tool.hatch.envs.default]
 features = ["all"]

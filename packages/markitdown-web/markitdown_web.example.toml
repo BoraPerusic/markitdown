@@ -1,0 +1,17 @@
+# Example configuration for markitdown-web
+# Copy to ./markitdown_web.toml and edit as needed.
+
+# API key required for all API requests (header: x-api-key)
+api_key = "change-me"
+
+# Maximum upload size in MiB
+max_upload_mb = 10
+
+# Enable MarkItDown plugins at startup
+enable_plugins = false
+
+# Log level: info | debug | warning | error
+log_level = "info"
+
+# Optional CORS origins (uncomment to enable)
+# cors_origins = ["http://localhost:3000", "https://example.com"]
